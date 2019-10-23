@@ -4,7 +4,7 @@ author: "James Bertschy"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Introduction to fars package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -23,8 +23,9 @@ The Fars package provides function that can be used to analyse data from  the US
 
 ## Packages needed
 
-```{r}
-library(dplyr)
+```{r, echo = FALSE, include = FALSE, eval = FALSE}
+
+library(readr)
 library(magrittr)
 library(fars)
 library(maps)
@@ -48,7 +49,7 @@ list.files(system.file("extdata", package = "fars"))
 This function reads a csv file and returns a tibble data frame.
 
 
-```{r}
+```{r, eval = FALSE}
 
 make_filename(2013:2015)
 
@@ -61,7 +62,7 @@ make_filename(2013:2015)
 This function plots a table with number of accidents per year and month.
 
 
-```{r}
+```{r, eval = FALSE}
 setwd(system.file("extdata", package = "fars"))
 years <- c(2013, 2014, 2015)
 fars_summarize_years(2013:2015)
@@ -75,8 +76,10 @@ fars_summarize_years(2013:2015)
 This function plots a graph for definded state with all accident locations.
 
 
-```{r}
+```{r, eval = FALSE}
 setwd(system.file("extdata", package = "fars"))
-fars_map_state(49, 2014)
+state_num <- 49
+year <- 2014
+fars_map_state(state_num, year)
 
 ```

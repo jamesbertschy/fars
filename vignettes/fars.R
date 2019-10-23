@@ -5,8 +5,7 @@ knitr::opts_chunk$set(
 )
 
 ## ------------------------------------------------------------------------
-library(dplyr)
-library(magrittr)
+
 library(fars)
 library(maps)
 
@@ -28,6 +27,7 @@ fars_summarize_years(2013:2015)
 
 ## ------------------------------------------------------------------------
 setwd(system.file("extdata", package = "fars"))
-fars_map_state(49, 2014)
-
+state_num <- 49
+year <- 2014
+fars_map_state(state_num, year)
 
