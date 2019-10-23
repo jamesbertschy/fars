@@ -1,0 +1,82 @@
+---
+title: "fars"
+author: "James Bertschy"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+# Fars Package
+
+The Fars package provides function that can be used to analyse data from  the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System, which is a nationwide census providing the American public yearly data regarding fatal injuries suffered. 
+
+## Packages needed
+
+```{r}
+library(dplyr)
+library(magrittr)
+library(fars)
+library(maps)
+
+```
+
+
+## Data
+
+Available data for the use of Fatality Analysis Reporting System. 
+
+```{r}
+list.files(system.file("extdata", package = "fars"))
+
+```
+
+## Package functions
+
+### fars_read
+
+This function reads a csv file and returns a tibble data frame.
+
+
+```{r}
+
+make_filename(2013:2015)
+
+```
+
+
+
+### fars_summarize_years
+
+This function plots a table with number of accidents per year and month.
+
+
+```{r}
+setwd(system.file("extdata", package = "fars"))
+years <- c(2013, 2014, 2015)
+fars_summarize_years(2013:2015)
+
+```
+
+
+
+### fars_map_state
+
+This function plots a graph for definded state with all accident locations.
+
+
+```{r}
+setwd(system.file("extdata", package = "fars"))
+fars_map_state(49, 2014)
+
+```
